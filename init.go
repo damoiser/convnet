@@ -1,9 +1,14 @@
 package convnet
 
-func New() (*ConvNet, error) {
+func New(input [][]int32) (*ConvNet, error) {
   // do init
 
-  return &ConvNet{}
+  conv := &ConvNet{
+    steps: []*Steps{baseStep(input)},
+    input: input,
+  }
+
+  return conv
 }
 
 func (conv *ConvNet) Train() error {
