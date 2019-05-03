@@ -1,26 +1,37 @@
 package convnet
 
-// CreateStepConvolution create a convolutional step
-func CreateStepConvolution() *Step {
+
+func baseStep(input [][]int32) *Step {
+  return &Step{
+    Result: input,
+  }
+}
+
+// StepConvolution create a convolutional step
+func StepConvolution() *Step {
 
 }
 
-// CreateStepReLU apply the ReLU
-func CreateStepReLU() *Step {
+// StepReLU apply the activation ReLU
+func StepReLU() *Step {
 
 }
 
-// CreateStepPooling add the pooling
-func CreateStepPooling() *Step {
+// StepPooling add the pooling
+func StepPooling() *Step {
 
 }
 
-// CreateStepFlatten flat the volume to a matrix 1xN
-func CreateStepFlatten() *Step {
+// StepFlatten flat the volume to a matrix 1xN
+func StepFlatten() *Step {
 
 }
 
-// CreateStepSoftmax add classification
-func CreateStepSoftmax() *Step {
+// StepSoftmax add classification
+func StepSoftmax() *Step {
+
+}
+
+func (step *Step) process(prev_step *Step) {
 
 }
