@@ -35,13 +35,23 @@ func (matrix *Matrix) Multiply(matrix2 *Matrix) (*Matrix, error) {
 	return result, nil
 }
 
-func (matrix *Matrix) Flattern() (*Matrix, error) {
-	// TODO
-	return nil, nil
+// Flattening flat a matrix NxM to a matrix (1, N+M)
+func (matrix *Matrix) Flattening() *Matrix {
+	result := &Matrix{
+		content: make([][]float64, 1),
+	}
+
+	for i := 0; i < len(matrix.content); i++ {
+		for j := 0; j < len(matrix.content[i]); j++ {
+			result.content[0] = append(result.content[0], matrix.content[i][j])
+		}
+	}
+
+	return result
 }
 
 // Transpose the input matrix (A^T)
-func (matrix *Matrix) Transpose() (*Matrix, error) {
+func (matrix *Matrix) Transpose() *Matrix {
 	result := &Matrix{
 		content: make([][]float64, len(matrix.content[0])),
 	}
@@ -52,5 +62,5 @@ func (matrix *Matrix) Transpose() (*Matrix, error) {
 		}
 	}
 
-	return result, nil
+	return result
 }
