@@ -64,3 +64,18 @@ func (matrix *Matrix) Transpose() *Matrix {
 
 	return result
 }
+
+// MaxPool apply max pooling to the matrix with a max-pool filter of size filter_size (square)
+// and a stride (movement of the filter), the filter applied outside the original matrix use as paddings "0s"
+func (matrix *Matrix) MaxPool(filter_size int, stride int) *Matrix {
+	result := &Matrix{
+		content: [][]float64{},
+	}
+
+	for i := 0; i < len(matrix.content)+stride; i += stride {
+		for j := 0; j < len(matrix.content[0])+stride; j += stride {
+
+		}
+	}
+
+}
