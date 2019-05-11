@@ -50,4 +50,41 @@ var _ = Describe("Matrix", func() {
 			Expect(res).To(BeNil())
 		})
 	})
+
+	Context("when testing matrix transposion", func() {
+		It("transpose correctly", func() {
+			matrix := Matrix{
+				content: [][]float64{
+					[]float64{-1.0, 2.0},
+					[]float64{3.0, 4.0},
+					[]float64{5.0, -6.0},
+					[]float64{7.0, 8.0},
+					[]float64{9.0, 10.0},
+				},
+			}
+
+			res := matrix.Transpose()
+			Expect(res).NotTo(BeNil())
+			Expect(len(res.content)).To(Equal(2))
+			Expect(res.content[0]).To(Equal([]float64{-1.0, 3.0, 5.0, 7.0, 9.0}))
+			Expect(res.content[1]).To(Equal([]float64{2.0, 4.0, -6.0, 8.0, 10.0}))
+		})
+	})
+
+	Context("when testing matrix flattening", func() {
+		It("flattens correctly", func() {
+			matrix := Matrix{
+				content: [][]float64{
+					[]float64{-1.0, 2.0, 3.0},
+					[]float64{4.0, 5.0, -6.0},
+					[]float64{7.0, 8.0, 9.0},
+				},
+			}
+
+			res := matrix.Flattening()
+			Expect(res).NotTo(BeNil())
+			Expect(len(res.content)).To(Equal(1))
+			Expect(res.content[0]).To(Equal([]float64{-1.0, 2.0, 3.0, 4.0, 5.0, -6.0, 7.0, 8.0, 9.0}))
+		})
+	})
 })
