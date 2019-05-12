@@ -19,9 +19,9 @@ func StepReLU() *Step {
 }
 
 // StepPooling add the pooling => max pooling
-// this apply a filter_size (square) to the original matrix and a
+// this apply a filterSize (square) to the original matrix and a
 // "move" of the filter on the original matrix of stride-distance
-func StepPooling(filter_size int, stride int) *Step {
+func StepPooling(filterSize int, stride int) *Step {
 	// TODO
 	return nil
 }
@@ -38,6 +38,6 @@ func StepSoftmax() *Step {
 	return nil
 }
 
-func (step *Step) process(prev_step *Step) {
+func (step *Step) process(prevStep *Step) {
 
 }
