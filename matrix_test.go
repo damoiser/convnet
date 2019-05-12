@@ -89,11 +89,11 @@ var _ = Describe("Matrix", func() {
 	})
 
 	Context("when testing maxpool", func() {
-		It("complains if filter_size is invalid", func() {
+		It("complains if filterSize is invalid", func() {
 			matrix := &Matrix{}
 			res, err := matrix.MaxPool(0, 2)
 			Expect(err).To(HaveOccurred())
-			Expect(err.Error()).To(Equal("filter_size is invalid"))
+			Expect(err.Error()).To(Equal("filterSize is invalid"))
 			Expect(res).To(BeNil())
 		})
 
