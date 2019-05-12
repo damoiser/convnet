@@ -136,9 +136,9 @@ var _ = Describe("Matrix", func() {
 			Expect(err).NotTo(HaveOccurred())
 			Expect(res).NotTo(BeNil())
 			Expect(res.content[0]).To(Equal([]float64{5.0, 5.0, 4.0, 3.0}))
-			Expect(res.content[0]).To(Equal([]float64{6.0, 6.0, 6.0, 3.0}))
-			Expect(res.content[0]).To(Equal([]float64{6.0, 6.0, 6.0, 3.0}))
-			Expect(res.content[0]).To(Equal([]float64{6.0, 6.0, 6.0, 1.0}))
+			Expect(res.content[1]).To(Equal([]float64{6.0, 6.0, 6.0, 3.0}))
+			Expect(res.content[2]).To(Equal([]float64{6.0, 6.0, 6.0, 3.0}))
+			Expect(res.content[3]).To(Equal([]float64{6.0, 6.0, 6.0, 1.0}))
 		})
 
 		It("calculates correctly with filter 3x3 and stride 2", func() {
