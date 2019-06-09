@@ -76,4 +76,25 @@ var _ = Describe("CcnFunctions", func() {
 			Expect(res.content[1]).To(Equal([]float64{6.0, 6.0}))
 		})
 	})
+
+	Context("when testing ReLU", func() {
+		It("applies correctly the max(0,x)", func() {
+			matrix := &Matrix{
+				content: [][]float64{
+					[]float64{2.0, 3.0, 4.0, 0.0},
+					[]float64{1.0, -5.0, 3.0, 2.0},
+					[]float64{-0.5, 4.2, -2.0, 3.0},
+					[]float64{-1.0, 0.0, -6.0, 1.0},
+				},
+			}
+
+			res, err := matrix.ReLU()
+			Expect(err).NotTo(HaveOccurred())
+			Expect(res).NotTo(BeNil())
+			Expect(res.content[0]).To(Equal([]float64{2.0, 3.0, 4.0, 0.0}))
+			Expect(res.content[1]).To(Equal([]float64{1.0, 0.0, 3.0, 2.0}))
+			Expect(res.content[2]).To(Equal([]float64{0.0, 4.2, 0.0, 3.0}))
+			Expect(res.content[3]).To(Equal([]float64{0.0, 0.0, 0.0, 1.0}))
+		})
+	})
 })
