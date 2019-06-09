@@ -60,3 +60,23 @@ func (matrix *Matrix) MaxPool(filterSize int, stride int) (*Matrix, error) {
 
 	return result, nil
 }
+
+// ReLU (rectified linear unit) applies non-satutaring activation functions => f(x) = max(0, x)
+// it removes negative value from an activation map setting to 0s
+func (matrix *Matrix) ReLU() (*Matrix, error) {
+	result := &Matrix{
+		content: [][]float64{},
+	}
+
+	for i := 0; i < len(matrix.content); i++ {
+		for j := 0; j < len(matrix.content[0]); j++ {
+			if matrix.content[i][j] < 0.0 {
+				result.content[i][j] = 0.0
+			} else {
+				result.content[i][j] = matrix.content[i][j]
+			}
+		}
+	}
+
+	return result, nil
+}
