@@ -69,12 +69,16 @@ func (matrix *Matrix) ReLU() (*Matrix, error) {
 	}
 
 	for i := 0; i < len(matrix.content); i++ {
+		result.content = append(result.content, []float64{})
+
 		for j := 0; j < len(matrix.content[0]); j++ {
+			val := matrix.content[i][j]
+
 			if matrix.content[i][j] < 0.0 {
-				result.content[i][j] = 0.0
-			} else {
-				result.content[i][j] = matrix.content[i][j]
+				val = 0.0
 			}
+
+			result.content[i] = append(result.content[i], val)
 		}
 	}
 
